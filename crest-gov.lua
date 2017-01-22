@@ -1,6 +1,5 @@
 dofile("urlcode.lua")
 dofile("table_show.lua")
-JSON = (loadfile "JSON.lua")()
 
 local item_type = os.getenv('item_type')
 local item_value = os.getenv('item_value')
@@ -15,14 +14,6 @@ local abortgrab = false
 
 for ignore in io.open("ignore-list", "r"):lines() do
   downloaded[ignore] = true
-end
-
-load_json_file = function(file)
-  if file then
-    return JSON:decode(file)
-  else
-    return nil
-  end
 end
 
 read_file = function(file)
